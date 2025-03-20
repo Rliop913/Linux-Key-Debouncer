@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.0)
 
 project(LinuxKeyDebouncer VERSION 1.0 LANGUAGES C CXX)
@@ -14,7 +15,10 @@ link_libraries(
 
 set(srcs
     ${CMAKE_SOURCE_DIR}/main.cpp
-
+    ${CMAKE_SOURCE_DIR}/TIME.cpp
 )
 
-add_executable(keyDebouncer ${srcs})
+add_executable(keyDebouncer ${srcs})     
+
+install(TARGETS keyDebouncer
+        RUNTIME DESTINATION bin)

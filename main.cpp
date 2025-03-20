@@ -4,9 +4,7 @@
 #include <cstring>
 
 
-using TIMETYPE= unsigned long;
-
-constexpr TIMETYPE BOUNCING_TIME_MICRO_SECOND = 50000;
+extern unsigned long BOUNCING_TIME_MICRO_SECOND;
 constexpr auto EVSZ = sizeof(input_event);
 int main(int argc, char* argv[])
 {
