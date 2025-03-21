@@ -6,6 +6,7 @@
 
 extern unsigned long BOUNCING_TIME_MICRO_SECOND;
 constexpr auto EVSZ = sizeof(input_event);
+#include <iostream>
 int main(int argc, char* argv[])
 {
     input_event evS;
@@ -14,7 +15,7 @@ int main(int argc, char* argv[])
     while (true){
         ssize_t bytesRead = read(STDIN_FILENO, &evS, EVSZ);
         if (bytesRead != EVSZ){
-            continue;
+            break;
         }
         if (evS.type == EV_KEY && evS.value == 1){
             if((evS.time.tv_sec - inTimeTable[evS.code].tv_sec < 2) && evS.time.tv_usec !=  inTimeTable[evS.code].tv_usec){
