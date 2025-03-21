@@ -16,7 +16,12 @@ bash ./debounceSetter.sh
 ```bash
 sudo bash ./runDebounce.sh /dev/input/eventX
 ```
+If your device reconnects frequently, for example, bluetooth keyboard, use this.
 
+```bash
+sudo bash ./autoReconnectRunner.sh /dev/input/eventX
+```
+Provides continuous reconnection using the udevadm add event.
 
 Done!
 
@@ -43,6 +48,12 @@ If you want to terminate debouncer, use this
 ```bash
 ps -e | grep keyDebouncer
 # check id
+kill -9 <checked id>
+```
+if it was autoreconnector, use this.
+```bash
+ps -e | grep udevadm
+#check id
 kill -9 <checked id>
 ```
 
